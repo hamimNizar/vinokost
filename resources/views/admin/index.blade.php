@@ -278,7 +278,7 @@
                     
                   </div>
                 </div>
-                <div class="col-12 col-md-8 col-lg-8 order-3 order-md-2">
+                <!-- <div class="col-12 col-md-8 col-lg-8 order-3 order-md-2">
                   <div class="row">
                     <div class="col-12 mb-4">
                       <div class="card">
@@ -302,7 +302,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
 
               

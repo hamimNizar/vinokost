@@ -23,6 +23,7 @@ class PenghuniController extends Controller
         $datalogpenghuni = User::where('username', $request->username)
                                 ->where('password', $request->password)
                                 ->where('jenis_user', 'Penghuni')
+                                ->where('status', 'Aktif')
                                 ->get();
                                 // dd(count($datalogadmin));
         if(count($datalogpenghuni)<1){
@@ -52,6 +53,7 @@ class PenghuniController extends Controller
             'email' => 'required',
             'no_telepon' => 'required',
             'username' => 'required',
+            'status' => 'required',
         ]);
 
         if($request->get('password') != ""){
@@ -62,6 +64,7 @@ class PenghuniController extends Controller
                     'alamat' => $request->get('alamat'),
                     'email' => $request->get('email'),
                     'no_telepon' => $request->get('no_telepon'),
+                    'status' => $request->get('status'),
                     'username' => $request->get('username'),
                     'password' => $request->get('password'),
                 ));
@@ -75,6 +78,7 @@ class PenghuniController extends Controller
                     'alamat' => $request->get('alamat'),
                     'email' => $request->get('email'),
                     'no_telepon' => $request->get('no_telepon'),
+                    'status' => $request->get('status'),
                     'username' => $request->get('username'),
                 ));
                 
@@ -128,6 +132,7 @@ class PenghuniController extends Controller
             'no_telepon' => $request->no_telepon,
             'username' => $request->username,
             'password' => $request->password,
+            'status' => 'Aktif',
             'jenis_user' => 'Penghuni',
         ]);
         $datauser->save();
@@ -206,6 +211,16 @@ class PenghuniController extends Controller
     {
         User::destroy('id_user', $id);
         return redirect('/admin/penghuni')->with('success', 'Data Penghuni Berhasil dihapus !');
+    }
+
+    public function setPenghuniInActive($id){
+        
+        DB::table('user')->where('id_user', $id)
+                    ->update(array(
+                        'status'=>'Tidak Aktif',
+                    ));
+        
+        return redirect('/admin/penghuni')->with('success', 'Berhasil menonaktifkan penghuni !');
     }
 
     public function penghuniDashboard(){

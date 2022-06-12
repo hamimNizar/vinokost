@@ -228,36 +228,27 @@
                     <thead>
                       <tr>
                         <th>Nama Kamar</th>
-                        <th>Penghuni</th>
                         <th>Mulai Sewa</th>
+                        <th>Tipe Pembayaran</th>
+                        <th>Kode Transaksi</th>
+                        <th>Tanggal Transaksi</th>
                         <th>Status</th>
-                        <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                       @foreach ($datatransaksi as $transaksi)
                         <tr>
                           <td><strong>{{$transaksi->nama_kamar}}</strong></td>
-                          <td>{{$transaksi->nama_user}}</td>
                           <td>{{$transaksi->mulai_sewa}}</td>
-                          <td><span class="badge bg-label-primary me-1">{{$transaksi->statustransaksi}}</span></td>
+                          <td>{{$transaksi->tipe_pembayaran}}</td>
+                          <td class="text-wrap">{{$transaksi->kode_transaksi}}</td>
+                          <td>{{$transaksi->tanggal_transaksi}}</td>
                           <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-show-alt me-1"></i> Detail</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
+                            @if ($transaksi->statustransaksi == 'settlement')
+                              <span class="badge bg-label-primary me-1">{{$transaksi->statustransaksi}}</span>
+                            @else
+                              <span class="badge bg-label-warning me-1">{{$transaksi->statustransaksi}}</span>
+                            @endif
                           </td>
                         </tr>
                       @endforeach                   

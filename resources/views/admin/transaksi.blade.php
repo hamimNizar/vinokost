@@ -246,7 +246,13 @@
                           <td><strong>{{$transaksi->nama_kamar}}</strong></td>
                           <td>{{$transaksi->nama_user}}</td>
                           <td>{{$transaksi->mulai_sewa}}</td>
-                          <td><span class="badge bg-label-primary me-1">{{$transaksi->statustransaksi}}</span></td>
+                          <td>
+                            @if ($transaksi->statustransaksi == 'settlement')
+                              <span class="badge bg-label-primary me-1">{{$transaksi->statustransaksi}}</span>
+                            @else
+                              <span class="badge bg-label-warning me-1">{{$transaksi->statustransaksi}}</span>
+                            @endif
+                          </td>
                           <td><a href="/admin/transaksi/detail/{{ $transaksi->id_transaksi }}"><span class="badge badge-center bg-primary me-1"><i class='bx bxs-edit'></i></span></a></td>
                         </tr>
                       @endforeach                   

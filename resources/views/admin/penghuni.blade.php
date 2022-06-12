@@ -237,6 +237,7 @@
                         <th>Alamat</th>
                         <th>No.Telepon</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -247,6 +248,7 @@
                         <td>{{ $penghuni->alamat }}</td>
                         <td>{{ $penghuni->no_telepon }}</td>
                         <td>{{ $penghuni->email }}</td>
+                        <td>{{ $penghuni->status }}</td>
                         <td><a href="/admin/penghuni/detail/{{ $penghuni->id_user }}"><span class="badge badge-center bg-primary me-1"><i class='bx bxs-edit'></i></span></a></td>
                       </tr>  
                       @endforeach                    

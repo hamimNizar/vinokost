@@ -302,8 +302,8 @@
                                 <p class="mb-0">Akun penghuni yang nonAktif, berarti penghuni sudah tidak menyewa indekos pada Vinokost</p>
                                 </div>
                             </div>
-                            <form action="{{ url('/admin/penghuni/' . $detailpenghuni->id_user) }}" method="post" class="d-inline">
-                                @method('delete')
+                            <form action="{{ url('/admin/penghuni/setnonaktif/' . $detailpenghuni->id_user) }}" method="post" class="d-inline">
+                                @method('patch')
                                 @csrf
                                 <div class="form-check mb-3">
                                 <input

@@ -196,7 +196,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="admin/logout">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -220,7 +220,7 @@
                         <div class="card mb-4">
                             <h5 class="card-header">Data Detail Transaksi</h5>
                             <div class="card-body">
-                                <small class="text-light fw-semibold">{{$detailtransaksi->tanggal_sewa}}</small>
+                                <small class="text-light fw-semibold">{{$detailtransaksi->tanggal_transaksi}}</small>
                                 <dl class="row mt-2">
                                     <dt class="col-sm-3">Nama Kamar</dt>
                                     <dd class="col-sm-9"><p>{{$detailtransaksi->nama_kamar}}</p></dd>
@@ -240,8 +240,11 @@
                                     <dt class="col-sm-3">Akhir Sewa</dt>
                                     <dd class="col-sm-9"><p>{{$detailtransaksi->akhir_sewa}}</p></dd>
 
-                                    <dt class="col-sm-3">Keterangan</dt>
-                                    <dd class="col-sm-9"><p>{{$detailtransaksi->keterangan}}</p></dd>
+                                    <dt class="col-sm-3">Tipe Pembayaran</dt>
+                                    <dd class="col-sm-9"><p>{{$detailtransaksi->tipe_pembayaran}}</p></dd>
+
+                                    <dt class="col-sm-3">Kode Transaksi</dt>
+                                    <dd class="col-sm-9"><p>{{$detailtransaksi->kode_transaksi}}</p></dd>
 
                                     <dt class="col-sm-3">Status</dt>
                                     <dd class="col-sm-9"><p><span class="badge bg-label-primary">{{$detailtransaksi->statustransaksi}}</span></p></dd>
@@ -249,9 +252,11 @@
                                     <hr class="my-3">
 
                                     <!-- cek jika sudah membayar dapt cetak struk -->
-                                    @if ($detailtransaksi->statustransaksi == 'Settlement')
+                                    @if ($detailtransaksi->statustransaksi == 'settlement')
                                         <dt class="col-sm-3">Cetak Struk Pembayaran</dt>
-                                        <dd class="col-sm-9"><button class="btn btn-primary float-start" type="submit">Cetak Struk</button></dd>
+                                        <dd class="col-sm-9">
+                                          <a href="/admin/transaksi/cetak/{{$detailtransaksi->id_transaksi}}" class="btn btn-md btn-info"></i> Cetak Struk</a>
+                                        </dd>
                                     @else
                                         <h6 class="mt-3"><span>Belum dapat cetak struk pembayaran. Silakan tunggu penghuni selesai melakukan pembayaran!</span></h6>
                                     @endif
