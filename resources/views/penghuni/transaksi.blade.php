@@ -186,7 +186,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/admin/profil">
+                      <a class="dropdown-item" href="/penghuni/profil">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>

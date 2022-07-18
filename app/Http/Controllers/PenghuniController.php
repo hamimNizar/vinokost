@@ -53,9 +53,7 @@ class PenghuniController extends Controller
             'email' => 'required',
             'no_telepon' => 'required',
             'username' => 'required',
-            'status' => 'required',
         ]);
-
         if($request->get('password') != ""){
             DB::table('user')->where('id_user', $id)
                 ->update(array(
@@ -64,7 +62,6 @@ class PenghuniController extends Controller
                     'alamat' => $request->get('alamat'),
                     'email' => $request->get('email'),
                     'no_telepon' => $request->get('no_telepon'),
-                    'status' => $request->get('status'),
                     'username' => $request->get('username'),
                     'password' => $request->get('password'),
                 ));
@@ -78,7 +75,6 @@ class PenghuniController extends Controller
                     'alamat' => $request->get('alamat'),
                     'email' => $request->get('email'),
                     'no_telepon' => $request->get('no_telepon'),
-                    'status' => $request->get('status'),
                     'username' => $request->get('username'),
                 ));
                 
